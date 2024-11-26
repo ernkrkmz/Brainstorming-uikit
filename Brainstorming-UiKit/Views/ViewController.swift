@@ -12,102 +12,210 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    
+        let imageBG = UIImageView(image: UIImage(named: "bg-1"))
+        imageBG.frame = view.bounds
+        imageBG.contentMode = .scaleAspectFill
         
-//        let _ = createNormalLargeButton1(frame: CGRect(x: view.frame.width/2 - 162, y: 100, width: 325, height: 50))
-//        let _ = createNormalLargeButton2(frame: CGRect(x: view.frame.width/2 - 162, y: 160, width: 325, height: 50))
-//        let _ = createNormalLargeButton3(frame: CGRect(x: view.frame.width/2 - 162, y: 220, width: 325, height: 50))
-//        let _ = createNormalLargeButton4(frame: CGRect(x: view.frame.width/2 - 162, y: 280, width: 325, height: 50))
-//        
-//        let _ = createGhostLargeButton1(frame: CGRect(x: view.frame.width/2 - 162, y: 340, width: 325, height: 50))
-//        let _ = createGhostLargeButton2(frame: CGRect(x: view.frame.width/2 - 162, y: 400, width: 325, height: 50))
-//        let _ = createGhostLargeButton3(frame: CGRect(x: view.frame.width/2 - 162, y: 460, width: 325, height: 50))
-//        let _ = createGhostLargeButton4(frame: CGRect(x: view.frame.width/2 - 162, y: 520, width: 325, height: 50))
+        view.addSubview(imageBG)
 
-//        let _ = createNormalLargeIconButton1(frame: CGRect(x: view.frame.width/2 - 162, y: 580, width: 325, height: 50))
-//        let _ = createNormalLargeIconButton2(frame: CGRect(x: view.frame.width/2 - 162, y: 640, width: 325, height: 50))
-//        let _ = createNormalLargeIconButton3(frame: CGRect(x: view.frame.width/2 - 162, y: 700, width: 325, height: 50))
-//        let _ = createNormalLargeIconButton4(frame: CGRect(x: view.frame.width/2 - 162, y: 760, width: 325, height: 50))
+        let overlayView = UIView()
+        overlayView.frame = view.bounds
+        overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.5) // %50 şeffaflık
+        view.addSubview(overlayView)
         
+        let headerLabel = UILabel()
+        headerLabel.text = "Brainstorming"
+        headerLabel.font = UIFont.systemFont(ofSize: 28 , weight: .bold)
+        headerLabel.textColor = .white
+        headerLabel.textAlignment = .center
+        headerLabel.frame = CGRect(x: view.frame.width/2 - 162 , y: 112 , width: 325, height: 34)
         
-//        let _ = createNormalSmallButton1(frame: CGRect(x: view.frame.width/4 - 75, y: 100, width: 150, height: 50))
-//        let _ = createNormalSmallButton2(frame: CGRect(x: view.frame.width/2 + 28, y: 100, width: 150, height: 50))
-//        let _ = createNormalSmallButton3(frame: CGRect(x: view.frame.width/4 - 75, y: 160, width: 150, height: 50))
-//        let _ = createNormalSmallButton4(frame: CGRect(x: view.frame.width/2 + 28, y: 160, width: 150, height: 50))
-//        
-//        let _ = createGhostSmallButton1(frame: CGRect(x: view.frame.width/4 - 75, y: 220, width: 150, height: 50))
-//        let _ = createGhostSmallButton2(frame: CGRect(x: view.frame.width/2 + 28, y: 220, width: 150, height: 50))
+        view.addSubview(headerLabel)
+        
+        let subHeaderLabel = UILabel()
+        subHeaderLabel.text = "Signing up or login to see our \ntop picks for you."
+        subHeaderLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        subHeaderLabel.textColor = .white
+        subHeaderLabel.numberOfLines = 2
+        subHeaderLabel.textAlignment = .center
+        subHeaderLabel.frame = CGRect(x: view.frame.width/2 - 162 , y: 162 , width: 325, height: 44)
 
-        let _ = createTextField(placeholder: "Placeholder", frame: CGRect(x: view.frame.width/2 - 162, y: 100, width: 325, height: 50))
+        view.addSubview(subHeaderLabel)
         
-        let _ = createErrorField(frame: CGRect(x: view.frame.width/2 - 162, y: 160, width: 325, height: 50))
-        let _ = createSuccessField(frame: CGRect(x: view.frame.width/2 - 162, y: 220, width: 325, height: 50))
-        
+        view.addSubview(createFacebookButton(frame: CGRect(x: view.frame.width/2 - 162, y: 562, width:325 , height: 50), title: "Continue with Facebook"))
+        view.addSubview(createGoogleButton(frame: CGRect(x: view.frame.width/2 - 162, y: 627, width:325 , height: 50), title: "Continue with Google"))
+        view.addSubview(createMailButton(frame: CGRect(x: view.frame.width/2 - 162, y: 692, width:325 , height: 50), title: "Continue with Google"))
     }
     
-    
-    func createTextField(placeholder: String , frame: CGRect) -> UITextField {
-        let textField = UITextField(frame: frame)
-        textField.borderStyle = .roundedRect
-        textField.placeholder = placeholder
-        textField.backgroundColor = .white
-        textField.textColor = .lightGray
-        textField.font = .systemFont(ofSize: 16, weight: .medium)
+    func createFacebookButton(frame: CGRect, title: String) -> UIButton {
+        let button = UIButton()
         
-        textField.layer.borderColor = UIColor.neutralGray3.cgColor
+        let leftIcon: UIImageView = {
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: "facebook")
+            imageView.tintColor = .white
+            imageView.contentMode = .scaleAspectFit
+            imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            return imageView
+        }()
         
-        textField.layer.shadowColor = UIColor.black.cgColor
-        textField.layer.shadowOffset = CGSize(width: 0, height: 3)
-        textField.layer.shadowOpacity = 0.2
-        textField.layer.shadowRadius = 2
+        let buttonLabel: UILabel = {
+            let label = UILabel()
+            label.text = title
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+            label.textAlignment = .center
+            return label
+        }()
         
-        textField.autocorrectionType = .no
+        lazy var stackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [leftIcon, buttonLabel])
+            stackView.axis = .horizontal
+            stackView.alignment = .center
+            stackView.distribution = .fill
+            stackView.spacing = 10
+            
+            // Padding için boş bir görünüm eklenir
+            let paddingView = UIView()
+            paddingView.widthAnchor.constraint(equalToConstant: 10).isActive = true
+            stackView.insertArrangedSubview(paddingView, at: 0)
+            
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            return stackView
+        }()
         
-        view.addSubview(textField)
-        return textField
+        button.backgroundColor = .purpleDark1
+        button.layer.cornerRadius = AppRadius.forButtons
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowRadius = 2
+        button.frame = frame
+        
+        button.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: button.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 10) // Tüm stack için sol padding
+        ])
+        
+        return button
     }
     
-    func createErrorField(frame: CGRect) -> UITextField {
-        let textField = UITextField(frame: frame)
+    func createGoogleButton(frame: CGRect, title: String) -> UIButton {
+        let button = UIButton()
         
-        textField.layer.cornerRadius = AppRadius.forInputFields
-        textField.layer.borderWidth = 2
-        textField.backgroundColor = .white
-        textField.textColor = .red1
-        textField.font = .systemFont(ofSize: 16, weight: .medium)
+        let leftIcon: UIImageView = {
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: "google")
+            imageView.tintColor = .white
+            imageView.contentMode = .scaleAspectFit
+            imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            return imageView
+        }()
         
-        textField.layer.borderColor = UIColor.red1.cgColor
-        textField.isEnabled = false
-        textField.text = "  Error"
+        let buttonLabel: UILabel = {
+            let label = UILabel()
+            label.text = title
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+            label.textAlignment = .center
+            return label
+        }()
         
-        textField.layer.shadowColor = UIColor.red1.cgColor
-        textField.layer.shadowOffset = CGSize(width: 0, height: 3)
-        textField.layer.shadowOpacity = 0.4
-        textField.layer.shadowRadius = 10
+        lazy var stackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [leftIcon, buttonLabel])
+            stackView.axis = .horizontal
+            stackView.alignment = .center
+            stackView.distribution = .fill
+            stackView.spacing = 10
+            
+            // Padding için boş bir görünüm eklenir
+            let paddingView = UIView()
+            paddingView.widthAnchor.constraint(equalToConstant: 10).isActive = true
+            stackView.insertArrangedSubview(paddingView, at: 0)
+            
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            return stackView
+        }()
         
-        view.addSubview(textField)
-        return textField
+        button.backgroundColor = .blue2
+        button.layer.cornerRadius = AppRadius.forButtons
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowRadius = 2
+        button.frame = frame
+        
+        button.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: button.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 10) // Tüm stack için sol padding
+        ])
+        
+        return button
     }
-    
-    func createSuccessField(frame: CGRect) -> UITextField {
-        let textField = UITextField(frame: frame)
+    func createMailButton(frame: CGRect, title: String) -> UIButton {
+        let button = UIButton()
         
-        textField.layer.cornerRadius = AppRadius.forInputFields
-        textField.layer.borderWidth = 2
-        textField.backgroundColor = .white
-        textField.textColor = .green1
-        textField.font = .systemFont(ofSize: 16, weight: .medium)
+        let leftIcon: UIImageView = {
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: "mail")
+            imageView.tintColor = .white
+            imageView.contentMode = .scaleAspectFit
+            imageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            return imageView
+        }()
         
-        textField.layer.borderColor = UIColor.green1.cgColor
-        textField.isEnabled = false
-        textField.text = "  Success"
+        let buttonLabel: UILabel = {
+            let label = UILabel()
+            label.text = title
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+            label.textAlignment = .center
+            return label
+        }()
         
-        textField.layer.shadowColor = UIColor.green1.cgColor
-        textField.layer.shadowOffset = CGSize(width: 0, height: 3)
-        textField.layer.shadowOpacity = 0.4
-        textField.layer.shadowRadius = 10
+        lazy var stackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [leftIcon, buttonLabel])
+            stackView.axis = .horizontal
+            stackView.alignment = .center
+            stackView.distribution = .fill
+            stackView.spacing = 10
+            
+            // Padding için boş bir görünüm eklenir
+            let paddingView = UIView()
+            paddingView.widthAnchor.constraint(equalToConstant: 10).isActive = true
+            stackView.insertArrangedSubview(paddingView, at: 0)
+            
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            return stackView
+        }()
         
-        view.addSubview(textField)
-        return textField
+        button.backgroundColor = .purpleDark2
+        button.layer.cornerRadius = AppRadius.forButtons
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 3)
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowRadius = 2
+        button.frame = frame
+        
+        button.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: button.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: 10) // Tüm stack için sol padding
+        ])
+        
+        return button
     }
     
 }

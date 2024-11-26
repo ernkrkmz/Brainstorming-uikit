@@ -8,6 +8,17 @@
 import UIKit
 // MARK: Small buttons
 extension ViewController {
+    
+    
+//        let _ = createNormalSmallButton1(frame: CGRect(x: view.frame.width/4 - 75, y: 100, width: 150, height: 50))
+//        let _ = createNormalSmallButton2(frame: CGRect(x: view.frame.width/2 + 28, y: 100, width: 150, height: 50))
+//        let _ = createNormalSmallButton3(frame: CGRect(x: view.frame.width/4 - 75, y: 160, width: 150, height: 50))
+//        let _ = createNormalSmallButton4(frame: CGRect(x: view.frame.width/2 + 28, y: 160, width: 150, height: 50))
+//
+//        let _ = createGhostSmallButton1(frame: CGRect(x: view.frame.width/4 - 75, y: 220, width: 150, height: 50))
+//        let _ = createGhostSmallButton2(frame: CGRect(x: view.frame.width/2 + 28, y: 220, width: 150, height: 50))
+
+    
     func createNormalSmallButton1(frame: CGRect) -> UIButton {
         let button = UIButton(frame: frame)
         

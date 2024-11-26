@@ -11,6 +11,21 @@ import UIKit
 // MARK: Large buttons
 extension ViewController {
     
+//        let _ = createNormalLargeButton1(frame: CGRect(x: view.frame.width/2 - 162, y: 100, width: 325, height: 50))
+//        let _ = createNormalLargeButton2(frame: CGRect(x: view.frame.width/2 - 162, y: 160, width: 325, height: 50))
+//        let _ = createNormalLargeButton3(frame: CGRect(x: view.frame.width/2 - 162, y: 220, width: 325, height: 50))
+//        let _ = createNormalLargeButton4(frame: CGRect(x: view.frame.width/2 - 162, y: 280, width: 325, height: 50))
+//
+//        let _ = createGhostLargeButton1(frame: CGRect(x: view.frame.width/2 - 162, y: 340, width: 325, height: 50))
+//        let _ = createGhostLargeButton2(frame: CGRect(x: view.frame.width/2 - 162, y: 400, width: 325, height: 50))
+//        let _ = createGhostLargeButton3(frame: CGRect(x: view.frame.width/2 - 162, y: 460, width: 325, height: 50))
+//        let _ = createGhostLargeButton4(frame: CGRect(x: view.frame.width/2 - 162, y: 520, width: 325, height: 50))
+
+//        let _ = createNormalLargeIconButton1(frame: CGRect(x: view.frame.width/2 - 162, y: 580, width: 325, height: 50))
+//        let _ = createNormalLargeIconButton2(frame: CGRect(x: view.frame.width/2 - 162, y: 640, width: 325, height: 50))
+//        let _ = createNormalLargeIconButton3(frame: CGRect(x: view.frame.width/2 - 162, y: 700, width: 325, height: 50))
+//        let _ = createNormalLargeIconButton4(frame: CGRect(x: view.frame.width/2 - 162, y: 760, width: 325, height: 50))
+    
 
     func createNormalLargeButton1(frame: CGRect) -> UIButton {
         
